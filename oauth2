@@ -1,0 +1,6 @@
+
+User                                 -> Resource Owner
+Mobile Device / Computer             -> User Agent
+Application(browser)                 -> Client
+OpenID Connect(contains userdetails) -> Authorization Server
+API                                  -> Resource Server
