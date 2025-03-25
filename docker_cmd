@@ -1,0 +1,4 @@
+docker --version
+docker container run -d -p <port>:5000 <image>:<version>
+docker container ls
+docker container stop <id from ls>
