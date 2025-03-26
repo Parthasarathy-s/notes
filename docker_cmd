@@ -2,3 +2,5 @@ docker --version
 docker container run -d -p <port>:5000 <image>:<version>
 docker container ls
 docker container stop <id from ls>
+docker build -t hello-world-docker:v1 . //-t tag and . is context of current dir
+docker image list
