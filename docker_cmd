@@ -14,3 +14,5 @@ EXPOSE 5001
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 -------------------------
+docker run -d -p 9411:9411 openzipkin/zipkin
+mvn spring-boot:build-image
