@@ -2,3 +2,7 @@ minikube start
 kubectl run nginx --image=nginx
 kubectl get pods
 kubectl describe pod nginx
+kubectl get pods -o wide (id and node)
+kubectl create deployment nginx --image=nginx
+Kubernetes Concepts – https://kubernetes.io/docs/concepts/
+Pod Overview- https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
