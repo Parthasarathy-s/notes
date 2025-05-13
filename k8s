@@ -48,3 +48,21 @@ kubectl apply -f nginx-deployment.yaml
 kubectl apply -f nginx-service.yaml
 kubectl get pods -w
 minikube service nginx
+------------------------------------------------------------
+% kubectl run redis --image=redis --dry-run=client -o yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: redis
+  name: redis
+spec:
+  containers:
+  - image: redis
+    name: redis
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+------------------------------------------------------------
