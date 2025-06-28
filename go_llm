@@ -1,1 +1,3 @@
-% go install github.com/go-skynet/go-llama.cpp@latest
+% go mod init llama-test
+% go get github.com/go-skynet/go-llama.cpp
+% go run llm.go 
