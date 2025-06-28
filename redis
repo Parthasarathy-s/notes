@@ -1,0 +1,5 @@
+% brew install redis
+% brew services start redis //background service (daemon).
+% redis-server  //current terminal session and foreground
+% ps aux | grep redis //port
+% brew services stop redi
