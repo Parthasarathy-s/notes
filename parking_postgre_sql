@@ -1,0 +1,44 @@
+SELECT table_schema, table_name
+FROM information_schema.tables
+WHERE table_name = 'parking_lots';
+
+INSERT INTO demo_schema.parking_lots (lot_id, lot_name, floor_number, zone)
+VALUES 
+  (1, 'Basement 1', 1, 'A'),
+  (2, 'Basement 2', 2, 'B'),
+  (3, 'Open Area', 0, NULL);
+
+ INSERT INTO demo_schema.parking_slots (slot_id, lot_id, slot_number, slot_type, is_available)
+VALUES
+  (101, 1, 'A1', 'CAR', TRUE),
+  (102, 1, 'A2', 'CAR', TRUE),
+  (103, 1, 'B1', 'BIKE', TRUE),
+  (201, 2, 'A1', 'CAR', TRUE),
+  (202, 2, 'B2', 'BIKE', TRUE),
+  (301, 3, 'C1', 'CAR', TRUE);
+
+INSERT INTO demo_schema.parking_sessions (session_id, slot_id, vehicle_id, entry_time, exit_time, status)
+VALUES
+  (1001, 101, 'V001', '2025-12-11 08:00:00', NULL, 'ACTIVE'),
+  (1002, 202, 'V002', '2025-12-11 09:15:00', '2025-12-11 12:30:00', 'EXIT');
+
+  commit;
+
+SELECT * FROM demo_schema.parking_lots;
+
+SELECT * FROM demo_schema.parking_slots;
+
+SELECT * FROM demo_schema.parking_sessions;
+
+select s.slot_id, l.floor_number 
+from demo_schema.parking_slots s 
+join demo_schema.parking_lots l
+ON s.lot_id = l.lot_id and s.is_available = true;
+  
+
+SELECT l.floor_number, COUNT(*) AS free_slots
+FROM demo_schema.parking_slots s
+FULL JOIN demo_schema.parking_lots l ON s.lot_id = l.lot_id
+WHERE s.is_available = TRUE
+GROUP BY l.floor_number
+ORDER BY l.floor_number;
